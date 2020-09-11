@@ -7,5 +7,14 @@ module.exports = {
         filename: "[name]-[hash:8].js",
     },
     mode: "development",
+    module: {
+        rules: [{
+            test: /\.js$/,
+            use: [
+                path.resolve(__dirname, "./src/myloaders/myloader2.js"),
+                path.resolve(__dirname, "./src/myloaders/myloader1.js"),
+            ],
+        }, ],
+    },
     plugins: [new CleanWebpackPlugin()],
 };

@@ -9,22 +9,16 @@ module.exports = {
     },
     mode: "development",
     resolveLoader: {
-        modules: ["node_modules", "myloaders"],
+        modules: ["node_modules", "./src/myloaders"],
     },
     module: {
         rules: [{
                 test: /\.js$/,
-                use: [
-                    path.resolve(__dirname, "./src/myloaders/myloader2.js"),
-                    path.resolve(__dirname, "./src/myloaders/myloader1.js"),
-                ],
+                use: ["myloader2", "myloader1"],
             },
             {
                 test: /\.less$/,
-                use: [
-                    path.resolve(__dirname, "./src/myloaders/style-loader.js"),
-                    path.resolve(__dirname, "./src/myloaders/less-loader.js"),
-                ],
+                use: ["style-loader", "less-loader"],
             },
         ],
     },
